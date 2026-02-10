@@ -1,0 +1,525 @@
+:root{
+  --bg: #0b0e14;
+  --card: #111624;
+  --text: #e6e6e6;
+  --muted: #a7b0c0;
+  --primary: #7c5cff;
+  --accent: #00d1b2;
+  --ring: rgba(124,92,255,.35);
+  --shadow: 0 10px 30px rgba(0,0,0,.35);
+}
+
+:root.light{
+  --bg: #f6f8fb;
+  --card: #ffffff;
+  --text: #0e1320;
+  --muted: #475266;
+  --primary: #5b3df5;
+  --accent: #00b59b;
+  --ring: rgba(91,61,245,.25);
+  --shadow: 0 10px 30px rgba(28,28,36,.08);
+}
+
+*{
+  box-sizing: border-box;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+body{
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji";
+  background: radial-gradient(1200px 600px at 80% -10%, rgba(124,92,255,.15), transparent 50%), radial-gradient(800px 400px at -10% 10%, rgba(0,209,178,.12), transparent 50%), var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+a{
+  color: inherit;
+  text-decoration: none;
+}
+
+.container{
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Navbar */
+.nav{
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(8px);
+  background: color-mix(in oklab, var(--bg) 70%, transparent);
+  border-bottom: 1px solid color-mix(in oklab, var(--text) 12%, transparent);
+}
+
+.nav-inner{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+}
+
+.brand{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-weight: 800;
+  letter-spacing: .3px;
+}
+
+.logo{
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: linear-gradient(135deg,var(--primary),var(--accent));
+  box-shadow: var(--shadow);
+}
+
+.nav-links{
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a{
+  padding: 8px 12px;
+  border-radius: 12px;
+  opacity: .9;
+  transition: background .2s ease;
+}
+
+.nav-links a:hover{
+  background: color-mix(in oklab, var(--text) 8%, transparent);
+}
+
+.right-actions{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.btn{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 14px;
+  border: 1px solid color-mix(in oklab, var(--text) 15%, transparent);
+  background: var(--card);
+  box-shadow: var(--shadow);
+  transition: transform .2s ease, box-shadow .2s ease;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: inherit;
+  color: inherit;
+}
+
+.btn:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 12px 35px rgba(0,0,0,.4);
+}
+
+.ghost{
+  background: transparent;
+  box-shadow: none;
+}
+
+/* Hero */
+.hero{
+  padding: 80px 0 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before{
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(124, 92, 255, 0.15), transparent 70%), radial-gradient(ellipse 60% 40% at 80% 120%, rgba(0, 209, 178, 0.1), transparent 60%);
+  z-index: -2;
+}
+
+.hero-grid{
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap: 40px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.pill{
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid color-mix(in oklab, var(--text) 18%, transparent);
+  background: color-mix(in oklab, var(--card) 70%, transparent);
+  font-size: 12px;
+  color: var(--muted);
+}
+
+h1{
+  font-size: 42px;
+  line-height: 1.15;
+  margin: 14px 0 10px;
+}
+
+.lede{
+  color: var(--muted);
+  font-size: 18px;
+}
+
+.cta-row{
+  display: flex;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+/* Avatar */
+.avatar-container{
+  position: relative;
+}
+
+.avatar{
+  aspect-ratio: 1/1;
+  width: 100%;
+  border-radius: 24px;
+  background: radial-gradient(120px 80px at 60% 10%, rgba(124,92,255,.25), transparent 75%), radial-gradient(140px 80px at 10% 70%, rgba(0,209,178,.25), transparent 65%), url("https://res.cloudinary.com/dhbvctola/image/upload/v1770749672/profile_yukwhv.png");
+  background-size: cover;
+  background-position: center;
+  box-shadow: var(--shadow);
+  border: 1px solid color-mix(in oklab, var(--text) 18%, transparent);
+  cursor: pointer;
+  transition: filter .3s ease, transform .3s ease;
+}
+
+.avatar:hover{
+  filter: brightness(1.1);
+  transform: scale(1.02);
+}
+
+/* Avatar Overlay */
+.avatar-overlay{
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .4s ease, visibility .4s ease;
+}
+
+.avatar-overlay.active{
+  opacity: 1;
+  visibility: visible;
+}
+
+.avatar-full{
+  max-width: 90vw;
+  max-height: 90vh;
+  width: 600px;
+  aspect-ratio: 1/1;
+  border-radius: 24px;
+  background: url("https://res.cloudinary.com/dhbvctola/image/upload/v1770749672/profile_yukwhv.png");
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 20px 60px rgba(0,0,0,.7);
+  border: 2px solid color-mix(in oklab, var(--text) 25%, transparent);
+  transform: scale(0.8);
+  transition: transform .4s ease;
+}
+
+.avatar-overlay.active .avatar-full{
+  transform: scale(1);
+}
+
+.close-btn{
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--card);
+  border: 1px solid color-mix(in oklab, var(--text) 20%, transparent);
+  color: var(--text);
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform .2s ease, background .2s ease;
+  z-index: 10000;
+}
+
+.close-btn:hover{
+  transform: scale(1.1);
+  background: color-mix(in oklab, var(--card) 80%, var(--text));
+}
+
+/* Sections */
+section{
+  padding: 60px 0;
+}
+
+.section-head{
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.section-title{
+  font-size: 28px;
+  font-weight: 800;
+}
+
+.muted{
+  color: var(--muted);
+}
+
+/* Cards */
+.grid{
+  display: grid;
+  gap: 18px;
+}
+
+.grid.cols-3{
+  grid-template-columns: repeat(3,1fr);
+}
+
+.grid.cols-2{
+  grid-template-columns: repeat(2,1fr);
+}
+
+.card{
+  background: var(--card);
+  border: 1px solid color-mix(in oklab, var(--text) 16%, transparent);
+  border-radius: 20px;
+  padding: 18px;
+  box-shadow: var(--shadow);
+}
+
+.card h3{
+  margin: 10px 0 6px;
+}
+
+.badge{
+  display: inline-block;
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--text) 10%, transparent);
+  margin: 6px 8px 0 0;
+}
+
+/* Project card */
+.thumb{
+  aspect-ratio: 16/9;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid color-mix(in oklab, var(--text) 14%, transparent);
+}
+
+.thumb img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .6s ease;
+}
+
+.project:hover .thumb img{
+  transform: scale(1.05);
+}
+
+.card-actions{
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* About */
+.about{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+
+.list{
+  display: grid;
+  gap: 10px;
+  padding-left: 18px;
+}
+
+/* Contact */
+form{
+  display: grid;
+  gap: 12px;
+}
+
+input, textarea{
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid color-mix(in oklab, var(--text) 18%, transparent);
+  background: var(--card);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 14px;
+}
+
+input:focus, textarea:focus{
+  outline: 2px solid var(--ring);
+  border-color: transparent;
+}
+
+textarea{
+  min-height: 140px;
+  resize: vertical;
+}
+
+/* Footer */
+footer{
+  padding: 28px 0 60px;
+  color: var(--muted);
+}
+
+/* Utilities */
+.sr-only{
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Cosmic Stars Background */
+.stars-container{
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.star{
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  animation: twinkle linear infinite;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+@keyframes twinkle{
+  0%, 100%{
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50%{
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes float{
+  0%{
+    transform: translate(0, 0) rotate(0deg);
+  }
+  33%{
+    transform: translate(30px, -30px) rotate(120deg);
+  }
+  66%{
+    transform: translate(-20px, 20px) rotate(240deg);
+  }
+  100%{
+    transform: translate(0, 0) rotate(360deg);
+  }
+}
+
+.star.floating{
+  animation: float linear infinite, twinkle linear infinite;
+}
+
+.shooting-star{
+  position: absolute;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 50%, rgba(255,255,255,0) 100%);
+  animation: shoot linear infinite;
+  opacity: 0;
+  border-radius: 999px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+@keyframes shoot{
+  0%{
+    opacity: 0;
+    transform: translate(0, 0);
+  }
+  10%{
+    opacity: 1;
+  }
+  90%{
+    opacity: 0.5;
+  }
+  100%{
+    opacity: 0;
+    transform: translate(-300px, 300px);
+  }
+}
+
+/* Responsive */ 
+@media (max-width: 960px){
+  .hero-grid{
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .grid.cols-3{
+    grid-template-columns: repeat(2,1fr);
+  }
+  .about{
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px){
+  .nav-links{
+    display: none;
+  }
+  .grid.cols-3, .grid.cols-2{
+    grid-template-columns: 1fr;
+  }
+  .hero{
+    padding-top: 56px;
+  }
+  h1{
+    font-size: 32px;
+  }
+  .lede{
+    font-size: 16px;
+  }
+  .avatar-full{
+    width: 90vw;
+  }
+  .close-btn{
+    top: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+}

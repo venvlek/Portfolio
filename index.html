@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Adebiyi Olamilekan – Portfolio</title>
+  <meta name="description" content="Portfolio of Adebiyi Olamilekan – Computer Science Educator & Web Developer based in Lagos, Nigeria." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="nav">
+    <div class="container nav-inner">
+      <div class="brand"><span class="logo" aria-hidden="true"></span> <span>Adebiyi Olamilekan</span></div>
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="right-actions">
+        <button id="themeToggle" class="btn ghost" aria-label="Toggle theme">🌙</button>
+        <a class="btn" href="#contact">Hire Me</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header id="home" class="hero">
+    <div class="stars-container" id="starsContainer"></div>
+    <div class="container hero-grid">
+      <div>
+        <span class="pill">👋 Hello, I'm</span>
+        <h1>Adebiyi Olamilekan – Computer Science Educator & Web Developer</h1>
+        <p class="lede">I design and teach web experiences that are simple, accessible, and fast. Based in Lagos, Nigeria. I love turning ideas into practical projects students can build and ship.</p>
+        <div class="cta-row">
+          <a class="btn" href="#projects">View Projects</a>
+          <a class="btn ghost" href="#contact">Contact</a>
+        </div>
+        <div style="margin-top:14px" class="muted">Available for training, workshops, and freelance projects.</div>
+      </div>
+      <div class="avatar-container">
+        <div class="avatar" id="avatarThumb" role="img" aria-label="Click to view full portrait"></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Full Screen Avatar Overlay -->
+  <div class="avatar-overlay" id="avatarOverlay">
+    <button class="close-btn" id="closeAvatar" aria-label="Close portrait">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+    <div class="avatar-full"></div>
+  </div>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="pill">💼 Portfolio</div>
+          <h2 class="section-title">Selected Projects</h2>
+        </div>
+        <a class="btn ghost" href="https://github.com/venvlek" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+
+      <div class="grid cols-3">
+        <article class="card project">
+          <div class="thumb"><img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1200&auto=format&fit=crop" alt="Classroom web training" /></div>
+          <h3>HTML Forms Training Kit</h3>
+          <p class="muted">A complete lesson pack with live examples, exercises, and auto-marking for beginner students learning HTML forms over Zoom.</p>
+          <div>
+            <span class="badge">HTML</span><span class="badge">CSS</span><span class="badge">JS</span>
+          </div>
+          <div class="card-actions">
+            <a class="btn" href="#">Live</a>
+            <a class="btn ghost" href="#">Code</a>
+          </div>
+        </article>
+
+        <article class="card project">
+          <div class="thumb"><img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop" alt="Developer workspace" /></div>
+          <h3>Student Portfolio Generator</h3>
+          <p class="muted">A simple template + CLI that lets students generate a hosted portfolio in minutes with their details and screenshots.</p>
+          <div>
+            <span class="badge">Node</span><span class="badge">EJS</span><span class="badge">Netlify</span>
+          </div>
+          <div class="card-actions">
+            <a class="btn" href="#">Live</a>
+            <a class="btn ghost" href="#">Code</a>
+          </div>
+        </article>
+
+        <article class="card project">
+          <div class="thumb"><img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&auto=format&fit=crop" alt="Team collaboration" /></div>
+          <h3>Class Progress Tracker</h3>
+          <p class="muted">Lightweight dashboard to share weekly class summaries with parents and track assignments, built for low data environments.</p>
+          <div>
+            <span class="badge">React</span><span class="badge">Firebase</span><span class="badge">PWA</span>
+          </div>
+          <div class="card-actions">
+            <a class="btn" href="#">Live</a>
+            <a class="btn ghost" href="#">Code</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="pill">🛠️ Skillset</div>
+          <h2 class="section-title">Technologies & Tools</h2>
+        </div>
+      </div>
+      <div class="card">
+        <div style="display:flex; flex-wrap:wrap; gap:10px">
+          <span class="badge">HTML5</span>
+          <span class="badge">CSS3</span>
+          <span class="badge">JavaScript</span>
+          <span class="badge">Git & GitHub</span>
+          <span class="badge">VS Code</span>
+          <span class="badge">Firebase</span>
+          <span class="badge">Figma</span>
+          <span class="badge">Teaching</span>
+          <span class="badge">Curriculum Design</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="pill">🙋‍♂️ About</div>
+          <h2 class="section-title">Who I Am</h2>
+        </div>
+      </div>
+      <div class="about">
+        <div class="card">
+          <h3>Educator • Developer • Lifelong Learner</h3>
+          <p class="muted">I'm a Computer Science Education student and a Web Development Trainer. I enjoy teaching practical, project‑based lessons that help students build confidence. My focus is on accessible, maintainable code and simple UX.</p>
+          <ul class="list">
+            <li>🎓 B.Ed (in view), Computer Science Education – UNIBEN</li>
+            <li>🧑‍🏫 Web Dev Trainer – HTML, CSS, JS</li>
+            <li>📍 Lagos, Nigeria</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>What I'm Looking For</h3>
+          <p class="muted">Training gigs, junior frontend roles, and collaborations on education tools. I'm also open to speaking at meetups or schools about getting started in web development.</p>
+          <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:6px">
+            <a class="btn" href="#contact">Let's Work Together</a>
+            <a class="btn ghost" href="#" download>Download Résumé</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="pill">📬 Contact</div>
+          <h2 class="section-title">Let's Build Something</h2>
+        </div>
+      </div>
+      <div class="grid cols-2">
+        <div class="card">
+          <form id="contactForm" novalidate>
+            <label>
+              <span class="sr-only">Name</span>
+              <input type="text" name="name" placeholder="Your name" required />
+            </label>
+            <label>
+              <span class="sr-only">Email</span>
+              <input type="email" name="email" placeholder="Your email" required />
+            </label>
+            <label>
+              <span class="sr-only">Message</span>
+              <textarea name="message" placeholder="Your message" required></textarea>
+            </label>
+            <button class="btn" type="submit">Send Message</button>
+            <p id="formStatus" class="muted" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+        <div class="card">
+          <h3>Elsewhere</h3>
+          <p class="muted">Prefer email or socials? Use any of the links below.</p>
+          <ul class="list">
+            <li>✉️ Email: <a href="/cdn-cgi/l/email-protection#0b676e60726a6f6e6964734b6c666a626725686466"><span class="__cf_email__" data-cfemail="400c252b3a39212425222f3800272d21292c6e232f2d">[email&#160;protected]</span></a></li>
+            <li>📞 Phone: <a href="tel:+2348144318041">+234 814 431 8041</a></li>
+            <li>💼 LinkedIn: <a href="https://www.linkedin.com/in/adebiyi-olamilekan-4b083027a/" target="_blank" rel="noopener">linkedin.com/in/adebiyi-olamilekan</a></li>
+            <li>🐙 GitHub: <a href="https://github.com/venvlek" target="_blank" rel="noopener">github.com/venvlek</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div style="display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap">
+        <span>© <span id="year"></span> Adebiyi Olamilekan. All rights reserved.</span>
+      </div>
+    </footer>
+  <script src="script.js"></script>
+</body>
+</html>
+        
