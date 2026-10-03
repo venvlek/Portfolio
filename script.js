@@ -1,3 +1,15 @@
+window.addEventListener("load", function () {
+    const splash = document.getElementById("splashScreen");
+
+    setTimeout(function () {
+      splash.classList.add("hide");
+
+      setTimeout(function () {
+        splash.remove();
+      }, 650);
+    }, 1600);
+  });
+  
 // Initialize EmailJS
 (function(){
   emailjs.init("qks5GXttjyPUHRc4f");
