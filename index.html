@@ -1,253 +1,572 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Adebiyi Olamilekan – Portfolio</title>
-  <meta name="description" content="Portfolio of Adebiyi Olamilekan – Computer Science Educator & Web Developer based in Lagos, Nigeria." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link rel="stylesheet" href="main.css">
+
+<meta charset="UTF-8" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Adebiyi Olamilekan – Portfolio</title>
+
+<meta name="description" content="Portfolio of Adebiyi Olamilekan – Computer Science Educator & Web Developer based in Lagos, Nigeria." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<link rel="stylesheet" href="main.css">
+
+
+<style>
+  /* SPLASH SCREEN */
+  #splashScreen {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #0b1020;
+    color: #fff;
+    transition: opacity .6s ease, visibility .6s ease;
+  }
+
+  #splashScreen.hide {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  .splash-content {
+    text-align: center;
+    padding: 30px;
+    animation: splashUp .8s ease both;
+  }
+
+  .splash-logo {
+    width: 82px;
+    height: 82px;
+    margin: 0 auto 22px;
+    border-radius: 24px;
+    display: grid;
+    place-items: center;
+    font-size: 30px;
+    font-weight: 800;
+    background: linear-gradient(135deg, #6d5dfc, #20c997);
+    box-shadow: 0 18px 50px rgba(0,0,0,.35);
+  }
+
+  .splash-content h1 {
+    margin: 0;
+    font-size: clamp(28px, 5vw, 48px);
+    letter-spacing: -1px;
+  }
+
+  .splash-content p {
+    margin: 8px 0 24px;
+    opacity: .75;
+    font-size: 15px;
+  }
+
+  .splash-loader {
+    width: 180px;
+    height: 4px;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 20px;
+    background: rgba(255,255,255,.14);
+  }
+
+  .splash-loader span {
+    display: block;
+    width: 45%;
+    height: 100%;
+    border-radius: inherit;
+    background: #fff;
+    animation: splashLoad 1.4s ease-in-out infinite;
+  }
+
+  @keyframes splashLoad {
+    0% { transform: translateX(-120%); }
+    50% { transform: translateX(110%); }
+    100% { transform: translateX(250%); }
+  }
+
+  @keyframes splashUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+
 </head>
+
 <body>
-  <!-- NAVBAR -->
-  <nav class="nav">
-    <div class="container nav-inner">
-      <div class="brand"><span class="logo" aria-hidden="true"></span> <span>Adebiyi Olamilekan</span></div>
-      <div class="nav-links">
-        <a href="#home">Home</a>
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-      </div>
-      <div class="right-actions">
-        <button id="themeToggle" class="btn ghost" aria-label="Toggle theme">🌙</button>
-        <a class="btn" href="#contact">Hire Me</a>
-      </div>
-    </div>
-  </nav>
 
-  <!-- HERO -->
-  <header id="home" class="hero">
-    <div class="stars-container" id="starsContainer"></div>
-    <div class="container hero-grid">
-      <div>
-        <span class="pill">👋 Hello, I'm</span>
-        <h1>Adebiyi Olamilekan – Computer Science Educator & Web Developer</h1>
-        <p class="lede">I design and teach web experiences that are simple, accessible, and fast. Based in Lagos, Nigeria. I love turning ideas into practical projects students can build and ship.</p>
-        <div class="cta-row">
-          <a class="btn" href="#projects">View Projects</a>
-          <a class="btn ghost" href="#contact">Contact</a>
-        </div>
-        <div style="margin-top:14px" class="muted">Available for training, workshops, and freelance projects.</div>
-      </div>
-      <div class="avatar-container">
-        <div class="avatar" id="avatarThumb" role="img" aria-label="Click to view full portrait"></div>
-      </div>
-    </div>
-  </header>
-
-  <!-- Full Screen Avatar Overlay -->
-  <div class="avatar-overlay" id="avatarOverlay">
-    <button class="close-btn" id="closeAvatar" aria-label="Close portrait">
-      <i class="fa-solid fa-xmark"></i>
-    </button>
-    <div class="avatar-full"></div>
+<!-- SPLASH SCREEN -->
+<div id="splashScreen" aria-label="Loading portfolio">
+  <div class="splash-content">
+    <div class="splash-logo">AO</div>
+    <h1>Adebiyi Olamilekan</h1>
+    <p>Computer Science Educator &amp; Web Developer</p>
+    <div class="splash-loader" aria-hidden="true"><span></span></div>
   </div>
+</div>
 
-  <!-- PROJECTS -->
-  <section id="projects">
-    <div class="container">
-      <div class="section-head">
-        <div>
-          <div class="pill">💼 Portfolio</div>
-          <h2 class="section-title">Selected Projects</h2>
-        </div>
-        <a class="btn ghost" href="https://github.com/venvlek" target="_blank" rel="noopener">GitHub ↗</a>
+
+<!-- NAVBAR -->
+
+<nav class="nav">
+
+<div class="container nav-inner">
+
+<div class="brand"><span class="logo" aria-hidden="true"></span> <span>Adebiyi Olamilekan</span></div>
+
+<div class="nav-links">
+
+<a href="#home">Home</a>
+
+<a href="#projects">Projects</a>
+
+<a href="#skills">Skills</a>
+
+<a href="#about">About</a>
+
+<a href="#contact">Contact</a>
+
+</div>
+
+<div class="right-actions">
+
+<button id="themeToggle" class="btn ghost" aria-label="Toggle theme">🌙</button>
+
+<a class="btn" href="#contact">Hire Me</a>
+
+</div>
+
+</div>
+
+</nav>
+
+<!-- HERO -->
+
+<header id="home" class="hero">
+
+<div class="stars-container" id="starsContainer"></div>
+
+<div class="container hero-grid">
+
+<div>
+
+<span class="pill">👋 Hello, I'm</span>
+
+<h1>Adebiyi Olamilekan – Computer Science Educator & Web Developer</h1>
+
+<p class="lede">I design and teach web experiences that are simple, accessible, and fast. Based in Lagos, Nigeria. I love turning ideas into practical projects students can build and ship.</p>
+
+<div class="cta-row">
+
+<a class="btn" href="#projects">View Projects</a>
+
+<a class="btn ghost" href="#contact">Contact</a>
+
+</div>
+
+<div style="margin-top:14px" class="muted">Available for training, workshops, and freelance projects.</div>
+
+</div>
+
+<div class="avatar-container">
+
+<div class="avatar" id="avatarThumb" role="img" aria-label="Click to view full portrait"></div>
+
+</div>
+
+</div>
+
+</header>
+
+<!-- Full Screen Avatar Overlay -->
+
+<div class="avatar-overlay" id="avatarOverlay">
+
+<button class="close-btn" id="closeAvatar" aria-label="Close portrait">
+
+<i class="fa-solid fa-xmark"></i>
+
+</button>
+
+<div class="avatar-full"></div>
+
+</div>
+
+<!-- PROJECTS -->
+
+<section id="projects">
+
+<div class="container">
+
+<div class="section-head">
+
+<div>
+
+<div class="pill">💼 Portfolio</div>
+
+<h2 class="section-title">Selected Projects</h2>
+
+</div>
+
+<a class="btn ghost" href="https://github.com/venvlek" target="_blank" rel="noopener">GitHub ↗</a>
+
+</div>
+
+
+  <div class="grid cols-3">
+    <article class="card project">
+      <div class="thumb"><img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?q=80&w=1200&auto=format&fit=crop" alt="Garden of Success School" /></div>
+      <h3>Garden of Success School Website</h3>
+      <p class="muted">A comprehensive school website featuring multi-page navigation, admin panel for managing blog posts and gallery, contact form integration with EmailJS, and responsive mobile-first design.</p>
+      <div>
+        <span class="badge">HTML5</span><span class="badge">CSS3</span><span class="badge">JavaScript</span><span class="badge">EmailJS</span>
       </div>
-
-      <div class="grid cols-3">
-        <article class="card project">
-          <div class="thumb"><img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?q=80&w=1200&auto=format&fit=crop" alt="Garden of Success School" /></div>
-          <h3>Garden of Success School Website</h3>
-          <p class="muted">A comprehensive school website featuring multi-page navigation, admin panel for managing blog posts and gallery, contact form integration with EmailJS, and responsive mobile-first design.</p>
-          <div>
-            <span class="badge">HTML5</span><span class="badge">CSS3</span><span class="badge">JavaScript</span><span class="badge">EmailJS</span>
-          </div>
-          <div class="card-actions">
-            <a class="btn" href="https://venvlek.github.io/Garden-of-Success/">Live</a>
-            <a class="btn ghost" href="https://github.com/venvlek/Garden-of-Success">Code</a>
-          </div>
-        </article>
-
-        <article class="card project">
-          <div class="thumb"><img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?q=80&w=1200&auto=format&fit=crop" alt="To-Do List App" /></div>
-          <h3>To-Do List App</h3>
-          <p class="muted">A feature-rich task management app with splash screen, authentication (Google, Apple, Guest), priority levels, date filtering, and real-time task statistics dashboard.</p>
-          <div>
-            <span class="badge">HTML5</span><span class="badge">CSS3</span><span class="badge">JavaScript</span><span class="badge">LocalStorage</span>
-          </div>
-          <div class="card-actions">
-            <a class="btn" href="https://doit-app-phi.vercel.app/">Live</a>
-            <a class="btn ghost" href="https://github.com/venvlek/To-Do-List.git">Code</a>
-          </div>
-        </article>
-
-        <article class="card project">
-          <div class="thumb"><img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=1200&auto=format&fit=crop" alt="Master Pattern construction company website" /></div>
-          <h3>Master Pattern</h3>
-          <p class="muted">A corporate website for a construction company, showcasing services, past projects, and company profile with a clean, professional layout and responsive design.</p>
-          <div>
-            <span class="badge">HTML5</span><span class="badge">CSS3</span><span class="badge">JavaScript</span>
-          </div>
-          <div class="card-actions">
-            <a class="btn" href="https://masterparttenltd.com/">Live</a>
-            <a class="btn ghost" href="https://github.com/venvlek/Master-Parttern">Code</a>
-          </div>
-        </article>
-
-        <article class="card project">
-          <div class="thumb"><img src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?q=80&w=1200&auto=format&fit=crop" alt="Educhain blockchain certificates" /></div>
-          <h3>Educhain</h3>
-          <p class="muted">A web app that saves student certificates on a blockchain for tamper-proof verification, with the smart contract written in Rust.</p>
-          <div>
-            <span class="badge">Rust</span><span class="badge">Blockchain</span><span class="badge">Smart Contracts</span><span class="badge">Web3</span>
-          </div>
-          <div class="card-actions">
-            <a class="btn" href="https://blockchain-blond-kappa.vercel.app/">Live</a>
-            <a class="btn ghost" href="https://github.com/venvlek/blockchain.git">Code</a>
-          </div>
-        </article>
-
-        <article class="card project">
-          <div class="thumb"><img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?q=80&w=1200&auto=format&fit=crop" alt="Closeup Landing Page" /></div>
-          <h3>Closeup Landing Page Clone</h3>
-          <p class="muted">A pixel-perfect recreation of the Closeup toothpaste product page featuring advanced CSS Grid layouts, star ratings, product showcases, and responsive design with Font Awesome icons.</p>
-          <div>
-            <span class="badge">HTML5</span><span class="badge">CSS3</span><span class="badge">Grid</span><span class="badge">Font Awesome</span>
-          </div>
-          <div class="card-actions">
-            <a class="btn" href="https://venvlek.github.io/closeup-project/">Live</a>
-            <a class="btn ghost" href="https://github.com/venvlek/closeup-project">Code</a>
-          </div>
-        </article>
+      <div class="card-actions">
+        <a class="btn" href="https://venvlek.github.io/Garden-of-Success/">Live</a>
+        <a class="btn ghost" href="https://github.com/venvlek/Garden-of-Success">Code</a>
       </div>
-    </div>
-  </section>
+    </article>
 
-  <!-- SKILLS -->
-  <section id="skills">
-    <div class="container">
-      <div class="section-head">
-        <div>
-          <div class="pill">🛠️ Skillset</div>
-          <h2 class="section-title">Technologies & Tools</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div style="display:flex; flex-wrap:wrap; gap:10px">
-          <span class="badge">HTML5</span>
-          <span class="badge">CSS3</span>
-          <span class="badge">JavaScript</span>
-          <span class="badge">Rust</span>
-          <span class="badge">Web3</span>
-          <span class="badge">Git & GitHub</span>
-          <span class="badge">VS Code</span>
-          <span class="badge">Firebase</span>
-          <span class="badge">Figma</span>
-          <span class="badge">Teaching</span>
-          <span class="badge">Curriculum Design</span>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="container">
-      <div class="section-head">
-        <div>
-          <div class="pill">🙋‍♂️ About</div>
-          <h2 class="section-title">Who I Am</h2>
-        </div>
+    <article class="card project">
+      <div class="thumb">
+        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop" alt="GOS Register web application" />
       </div>
-      <div class="about">
-        <div class="card">
-          <h3>Educator • Developer • Lifelong Learner</h3>
-          <p class="muted">I'm a Computer Science Education student and a Web Development Trainer. I enjoy teaching practical, project‑based lessons that help students build confidence. My focus is on accessible, maintainable code and simple UX.</p>
-          <ul class="list">
-            <li>🎓 B.Ed (in view), Computer Science Education – UNIBEN</li>
-            <li>🧑‍🏫 Web Dev Trainer – HTML, CSS, JS</li>
-            <li>📍 Lagos, Nigeria</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>What I'm Looking For</h3>
-          <p class="muted">Training gigs, junior frontend roles, and collaborations on education tools. I'm also open to speaking at meetups or schools about getting started in web development.</p>
-          <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:6px">
-            <a class="btn" href="#contact">Let's Work Together</a>
-            <a class="btn ghost" href="Adebiyi_Olamilekan_Resume_Expanded.pdf" download>Download Résumé</a>
-          </div>
-        </div>
+      <h3>GOS Register</h3>
+      <p class="muted">A web-based school registration system built to simplify student registration and organize school information through a practical digital workflow.</p>
+      <div>
+        <span class="badge">HTML5</span><span class="badge">CSS3</span><span class="badge">JavaScript</span><span class="badge">Web App</span>
       </div>
-    </div>
-  </section>
+      <div class="card-actions">
+        <a class="btn" href="https://gos-register.netlify.app/" target="_blank" rel="noopener">Live</a>
+      </div>
+    </article>
 
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="container">
-      <div class="section-head">
-        <div>
-          <div class="pill">📬 Contact</div>
-          <h2 class="section-title">Let's Build Something</h2>
-        </div>
+    <article class="card project">
+      <div class="thumb"><img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?q=80&w=1200&auto=format&fit=crop" alt="To-Do List App" /></div>
+      <h3>To-Do List App</h3>
+      <p class="muted">A feature-rich task management app with splash screen, authentication (Google, Apple, Guest), priority levels, date filtering, and real-time task statistics dashboard.</p>
+      <div>
+        <span class="badge">HTML5</span><span class="badge">CSS3</span><span class="badge">JavaScript</span><span class="badge">LocalStorage</span>
       </div>
-      <div class="grid cols-2">
-        <div class="card">
-          <form id="contactForm" novalidate>
-            <label>
-              <span class="sr-only">Name</span>
-              <input type="text" name="name" placeholder="Your name" required />
-            </label>
-            <label>
-              <span class="sr-only">Email</span>
-              <input type="email" name="email" placeholder="Your email" required />
-            </label>
-            <label>
-              <span class="sr-only">Message</span>
-              <textarea name="message" placeholder="Your message" required></textarea>
-            </label>
-            <button class="btn" type="submit">Send Message</button>
-            <p id="formStatus" class="muted" role="status" aria-live="polite"></p>
-          </form>
-        </div>
-        <div class="card">
-          <h3>Elsewhere</h3>
-          <p class="muted">Prefer email or socials? Use any of the links below.</p>
-          <ul class="list">
-            <li>✉️ Email: <a href="mailto:lekzyadebox@gmail.com">lekzyadebox@gmail.com</a></li>
-            <li>📞 Phone: <a href="tel:+2348144318041">+234 814 431 8041</a></li>
-            <li>💼 LinkedIn: <a href="https://www.linkedin.com/in/adebiyi-olamilekan-4b083027a/" target="_blank" rel="noopener">linkedin.com/in/adebiyi-olamilekan</a></li>
-            <li>🐙 GitHub: <a href="https://github.com/venvlek" target="_blank" rel="noopener">github.com/venvlek</a></li>
-          </ul>
-        </div>
+      <div class="card-actions">
+        <a class="btn" href="https://doit-app-phi.vercel.app/">Live</a>
+        <a class="btn ghost" href="https://github.com/venvlek/To-Do-List.git">Code</a>
       </div>
-    </div>
-  </section>
+    </article>
 
-  <footer>
-   <a href="#top" class="btn"><i class="fa-solid fa-arrow-up"></i>Back to the top</a>
-    <div class="container">
-      
-      <div style="display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap">
-        <span>© <span id="year"></span> Adebiyi Olamilekan. All rights reserved.</span>
+    <article class="card project">
+      <div class="thumb"><img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=1200&auto=format&fit=crop" alt="Master Pattern construction company website" /></div>
+      <h3>Master Pattern</h3>
+      <p class="muted">A corporate website for a construction company, showcasing services, past projects, and company profile with a clean, professional layout and responsive design.</p>
+      <div>
+        <span class="badge">HTML5</span><span class="badge">CSS3</span><span class="badge">JavaScript</span>
       </div>
-    </footer>
-  <script src="script.js"></script>
+      <div class="card-actions">
+        <a class="btn" href="https://masterparttenltd.com/">Live</a>
+        <a class="btn ghost" href="https://github.com/venvlek/Master-Parttern">Code</a>
+      </div>
+    </article>
+
+    <article class="card project">
+      <div class="thumb"><img src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?q=80&w=1200&auto=format&fit=crop" alt="Educhain blockchain certificates" /></div>
+      <h3>Educhain</h3>
+      <p class="muted">A web app that saves student certificates on a blockchain for tamper-proof verification, with the smart contract written in Rust.</p>
+      <div>
+        <span class="badge">Rust</span><span class="badge">Blockchain</span><span class="badge">Smart Contracts</span><span class="badge">Web3</span>
+      </div>
+      <div class="card-actions">
+        <a class="btn" href="https://blockchain-blond-kappa.vercel.app/">Live</a>
+        <a class="btn ghost" href="https://github.com/venvlek/blockchain.git">Code</a>
+      </div>
+    </article>
+
+
+<!-- SKILLS -->
+
+<section id="skills">
+
+<div class="container">
+
+<div class="section-head">
+
+<div>
+
+<div class="pill">🛠️ Skillset</div>
+
+<h2 class="section-title">Technologies & Tools</h2>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<div style="display:flex; flex-wrap:wrap; gap:10px">
+
+<span class="badge">HTML5</span>
+
+        <div style="width:100%; margin-top:8px; margin-bottom:2px;" class="muted">
+          Office &amp; Productivity
+        </div>
+        <span class="badge">Microsoft Excel</span>
+        <span class="badge">Microsoft Word</span>
+        <span class="badge">Microsoft Access</span>
+        <span class="badge">Microsoft PowerPoint</span>
+
+        <div style="width:100%; margin-top:8px; margin-bottom:2px;" class="muted">
+          Graphics Design
+        </div>
+        <span class="badge">Photopea</span>
+        <span class="badge">Canva</span>
+        <span class="badge">Photoshop</span>
+        <span class="badge">Figma</span>
+
+
+<span class="badge">CSS3</span>
+
+<span class="badge">JavaScript</span>
+
+<span class="badge">Rust</span>
+
+<span class="badge">Web3</span>
+
+<span class="badge">Git & GitHub</span>
+
+<span class="badge">VS Code</span>
+
+<span class="badge">Firebase</span>
+
+<span class="badge">Figma</span>
+
+<span class="badge">Teaching</span>
+
+<span class="badge">Curriculum Design</span>
+
+</div>
+
+</div>
+
+</div>
+
+"badge">CSS3</span>
+
+<span class="badge">JavaScript</span>
+
+<span class="badge">Rust</span>
+
+<span class="badge">Web3</span>
+
+<span class="badge">Git & GitHub</span>
+
+<span class="badge">VS Code</span>
+
+<span class="badge">Firebase</span>
+
+<span class="badge">Figma</span>
+
+<span class="badge">Teaching</span>
+
+<span class="badge">Curriculum Design</span>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section id="about">
+
+<div class="container">
+
+<div class="section-head">
+
+<div>
+
+<div class="pill">🙋‍♂️ About</div>
+
+<h2 class="section-title">Who I Am</h2>
+
+</div>
+
+</div>
+
+<div class="about">
+
+<div class="card">
+
+<h3>Educator • Developer • Lifelong Learner</h3>
+
+<p class="muted">I'm a Computer Science Education student and a Web Development Trainer. I enjoy teaching practical, project‑based lessons that help students build confidence. My focus is on accessible, maintainable code and simple UX.</p>
+
+<ul class="list">
+
+<li>🎓 B.Ed (in view), Computer Science Education – UNIBEN</li>
+
+<li>🧑‍🏫 Web Dev Trainer – HTML, CSS, JS</li>
+
+<li>📍 Lagos, Nigeria</li>
+
+</ul>
+
+</div>
+
+<div class="card">
+
+<h3>What I'm Looking For</h3>
+
+<p class="muted">Training gigs, junior frontend roles, and collaborations on education tools. I'm also open to speaking at meetups or schools about getting started in web development.</p>
+
+<div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:6px">
+
+<a class="btn" href="#contact">Let's Work Together</a>
+
+<a class="btn ghost" href="Adebiyi_Olamilekan_Resume_Expanded.pdf" download>Download Résumé</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+<div class="container">
+
+<div class="section-head">
+
+<div>
+
+<div class="pill">📬 Contact</div>
+
+<h2 class="section-title">Let's Build Something</h2>
+
+</div>
+
+</div>
+
+<div class="grid cols-2">
+
+<div class="card">
+
+<form id="contactForm" novalidate>
+
+<label>
+
+<span class="sr-only">Name</span>
+
+<input type="text" name="name" placeholder="Your name" required />
+
+</label>
+
+<label>
+
+<span class="sr-only">Email</span>
+
+<input type="email" name="email" placeholder="Your email" required />
+
+</label>
+
+<label>
+
+<span class="sr-only">Message</span>
+
+<textarea name="message" placeholder="Your message" required></textarea>
+
+</label>
+
+<button class="btn" type="submit">Send Message</button>
+
+<p id="formStatus" class="muted" role="status" aria-live="polite"></p>
+
+</form>
+
+</div>
+
+<div class="card">
+
+<h3>Elsewhere</h3>
+
+<p class="muted">Prefer email or socials? Use any of the links below.</p>
+
+<ul class="list">
+
+<li>✉️ Email: <a href="mailto:[lekzyadebox@gmail.com](mailto:lekzyadebox@gmail.com)">[lekzyadebox@gmail.com](mailto:lekzyadebox@gmail.com)</a></li>
+
+<li>📞 Phone: <a href="tel:+2348144318041">+234 814 431 8041</a></li>
+
+<li>💼 LinkedIn: <a href="https://www.linkedin.com/in/adebiyi-olamilekan-4b083027a/" target="_blank" rel="noopener">linkedin.com/in/adebiyi-olamilekan</a></li>
+
+<li>🐙 GitHub: <a href="https://github.com/venvlek" target="_blank" rel="noopener">github.com/venvlek</a></li>
+
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<a href="#top" class="btn"><i class="fa-solid fa-arrow-up"></i>Back to the top</a>
+
+<div class="container">
+
+ 
+
+<div style="display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap">
+
+<span>© <span id="year"></span> Adebiyi Olamilekan. All rights reserved.</span>
+
+</div>
+
+</footer>
+
+
+<script>
+  window.addEventListener("load", function () {
+    const splash = document.getElementById("splashScreen");
+
+    setTimeout(function () {
+      splash.classList.add("hide");
+
+      setTimeout(function () {
+        splash.remove();
+      }, 650);
+    }, 1600);
+  });
+</script>
+
+<script src="script.js"></script>
+
 </body>
+
 </html>
-        
